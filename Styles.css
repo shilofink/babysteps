@@ -1,0 +1,45 @@
+h1 {color:red; text-align: center;}
+p {color:whitesmoke}
+body {background-color: black;}
+form {color:cornflowerblue;}
+form {text-align:center;}
+/*
+div.randomPerson {
+    float: left;
+    padding-left:20%;
+}
+
+div.stats {
+    float: right;
+    padding-right:20%
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.rightform {
+    margin: 0;  
+    position: absolute;
+    top: 20%;
+    left: 90%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+}
+*/
+
+.wrapper {
+    display:grid; 
+    grid-template-columns:2fr 1fr 2fr;
+    grid-gap:1em; 
+}
+
+.wrapper > div {
+    background:darkgray
+}
