@@ -1,0 +1,36 @@
+<div class="stats">
+                <form id="attributeNumbers">
+                    <label for="strength"></label>
+                    <br>
+                    <br>
+                    
+                    <input type="text" id="strength" class="strength" name="strength" value="" width=60px>
+                    <br>
+                    <br>
+                    <label for="dexterity"></label>
+                    <br>
+                    <input type="text" id="dexterity" name="dexterity" value="">
+                    <br>
+                    <br>
+                    <label for="constitution"></label>
+                    <br>
+                    <br>
+                    <input type="text" id="attribute" name="constitution" value="">
+                    <br>
+                    <br>
+                    <label for="intelligence"></label>
+                    <br>
+                    <input type="text" id="attribute" name="intelligence" value="">
+                    <br>
+                    <br>
+                    <label for="wisdom"></label>
+                    <br>
+                    <input type="text" id="attribute" name="wisdom" value="">
+                    <br>
+                    <br>
+                    <label for="charisma"></label>
+                    <br>
+                    <br>
+                    <input type="text" id="attribute" name="charisma" value="">
+                
+                </form> 

@@ -7,55 +7,84 @@
         
     </head>
     <body>
-        <h1>Dungeons and Dragons Character Generator</h1>
         <div class="wrapper">
-            <div class="randomPerson">
-            <p id="character"></p>
-            <p id="job"></p>
-                <div id="divImage">
-                    <img src ="Dudes/Blank.png" id="myImage" width="50" height="50">
-                </div>
-            </div>
-            <div class="center">
+            
+            <div class="button">
                 <button onclick="myFunc()">Start your adventure!</button>
                 <button onclick="fetchApi('races')">goober stuff!</button>
             </div>
+           
 
-            <div class="stats">
+            <div class="characterBasic"; style="background: url('Name.jpg'); background-size:contain; background-repeat: no-repeat;"></div>
+            <div class="stats"; style="background: url('Attributes.jpg'); background-size:40%; background-repeat: no-repeat; background-position: center">
                 <form id="attributeNumbers">
-                    <label for="strength">Strength:</label>
-                    <br>
-                    <input type="text" id="strength" class="strength" name="strength" value="">
+                    <label for="strength"></label>
                     <br>
                     <br>
-                    <label for="dexterity">Dexterity:</label>
+                    
+                    <input type="text" id="strength" class="strength" name="strength" value="" width=60px>
+                    <br>
+                    <br>
+                    <label for="dexterity"></label>
                     <br>
                     <input type="text" id="dexterity" name="dexterity" value="">
                     <br>
                     <br>
-                    <label for="constitution">Constitution:</label>
+                    <label for="constitution"></label>
+                    <br>
                     <br>
                     <input type="text" id="attribute" name="constitution" value="">
                     <br>
                     <br>
-                    <label for="intelligence">Intelligence:</label>
+                    <label for="intelligence"></label>
                     <br>
                     <input type="text" id="attribute" name="intelligence" value="">
                     <br>
                     <br>
-                    <label for="wisdom">Wisdom:</label>
+                    <label for="wisdom"></label>
                     <br>
                     <input type="text" id="attribute" name="wisdom" value="">
                     <br>
                     <br>
-                    <label for="charisma">Charisma:</label>
+                    <label for="charisma"></label>
                     <br>
+                    
                     <input type="text" id="attribute" name="charisma" value="">
-                    <br>
-                    <br>
                 
                 </form> 
+           
             </div>
+            <div class="profBonus"; style="background: url('Prof Bonus.jpg'); background-size:contain; background-repeat: no-repeat">PROFICIENCY BONUS</div>
+           
+            <div class="saves"; style="background: url('Saves.jpg'); background-size:contain; background-repeat: no-repeat;"></div>
+           
+            <div class="skills"; style="background: url('Skills.jpg'); background-size:contain; background-repeat: no-repeat;"></div>
+           
+            <div class="passivePerception"; style="background: url('Passive Perception.jpg'); background-size:contain; background-repeat: no-repeat";>PERCEPTION</div>
+           
+            <div class="proficiency"; style="background: url('Language.jpg'); background-size:contain; background-repeat: no-repeat;">LANGUAGES AND TOOLS</div>
+           
+            <div class="hp"; style="background: url('Health.jpg'); background-repeat:no-repeat"></div>
+           
+            <div class="attacks"; style="background: url('Attacks.jpg'); background-size:fill; background-repeat:no-repeat"></div>
+           
+            <div class="equipment"; style="background: url('Equipment.jpg'); background-size:cover; background-repeat: no-repeat;">EQUIPMENT</div>
+           
+            <div class="features"; style="background: url('Features.jpg'); background-size:cover";>FEATURES</div>
+           
+            <div class="spells">SPELLS</div>
+           
+            <div class="randomPerson">
+                <p id="character"></p>
+                <p id="job"></p>
+                    <div id="divImage">
+                        <img src ="Dudes/Blank.png" id="myImage" width="50" height="50">
+                    </div>
+                    
+
+           
+            </div>
+
         </div>
     </body>
 </html>
