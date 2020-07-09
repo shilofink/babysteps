@@ -2,89 +2,121 @@
 <html>
     <head>
         <link href="Styles.css" rel="stylesheet">
-
         <script src="random.js"></script>
-        
     </head>
+    
     <body>
-        <div class="wrapper">
-            
-            <div class="button">
-                <button onclick="myFunc()">Start your adventure!</button>
-                <button onclick="fetchApi('races')">goober stuff!</button>
-            </div>
-           
+        <h1>D&D CHARACTER GENERATOR</h1>
 
-            <div class="characterBasic"; style="background: url('Name.jpg'); background-size:contain; background-repeat: no-repeat;"></div>
-            <div class="stats"; style="background: url('Attributes.jpg'); background-size:40%; background-repeat: no-repeat; background-position: center">
-                <form id="attributeNumbers">
-                    <label for="strength"></label>
-                    <br>
-                    <br>
-                    
-                    <input type="text" id="strength" class="strength" name="strength" value="" width=60px>
-                    <br>
-                    <br>
-                    <label for="dexterity"></label>
-                    <br>
-                    <input type="text" id="dexterity" name="dexterity" value="">
-                    <br>
-                    <br>
-                    <label for="constitution"></label>
-                    <br>
-                    <br>
-                    <input type="text" id="attribute" name="constitution" value="">
-                    <br>
-                    <br>
-                    <label for="intelligence"></label>
-                    <br>
-                    <input type="text" id="attribute" name="intelligence" value="">
-                    <br>
-                    <br>
-                    <label for="wisdom"></label>
-                    <br>
-                    <input type="text" id="attribute" name="wisdom" value="">
-                    <br>
-                    <br>
-                    <label for="charisma"></label>
-                    <br>
-                    
-                    <input type="text" id="attribute" name="charisma" value="">
-                
-                </form> 
-           
+        <div class="generateButton">
+            <button onclick="myFunc()">Start your adventure!</button>
+            <button onclick="fetchApi('races')">goober stuff!</button>
+        </div>
+
+        <div class="characterBasic">
+            <div>
+                <p>Name</p>
+                <p id="name">generated name</p>
             </div>
-            <div class="profBonus"; style="background: url('Prof Bonus.jpg'); background-size:contain; background-repeat: no-repeat">PROFICIENCY BONUS</div>
-           
-            <div class="saves"; style="background: url('Saves.jpg'); background-size:contain; background-repeat: no-repeat;"></div>
-           
-            <div class="skills"; style="background: url('Skills.jpg'); background-size:contain; background-repeat: no-repeat;"></div>
-           
-            <div class="passivePerception"; style="background: url('Passive Perception.jpg'); background-size:contain; background-repeat: no-repeat";>PERCEPTION</div>
-           
-            <div class="proficiency"; style="background: url('Language.jpg'); background-size:contain; background-repeat: no-repeat;">LANGUAGES AND TOOLS</div>
-           
-            <div class="hp"; style="background: url('Health.jpg'); background-repeat:no-repeat"></div>
-           
-            <div class="attacks"; style="background: url('Attacks.jpg'); background-size:fill; background-repeat:no-repeat"></div>
-           
-            <div class="equipment"; style="background: url('Equipment.jpg'); background-size:cover; background-repeat: no-repeat;">EQUIPMENT</div>
-           
-            <div class="features"; style="background: url('Features.jpg'); background-size:cover";>FEATURES</div>
-           
-            <div class="spells">SPELLS</div>
-           
-            <div class="randomPerson">
-                <p id="character"></p>
+            <div>
+                <p>Race</p>
+                <p id="race"></p>
+            </div>
+            <div>
+                <p>Class</p>
                 <p id="job"></p>
-                    <div id="divImage">
-                        <img src ="Dudes/Blank.png" id="myImage" width="50" height="50">
-                    </div>
-                    
-
-           
+            </div>
+            <div>
+                <p>Level</p>
+                <p>1</p>
+            </div>
+        </div>
+        
+        <div class="wrapper">            
+            <div class="stats" id="attributeList">
+                <p>Strength</p>
+                <input type="text" class="attribute" value="">
+                <p>Dexterity</p>
+                <input type="text" class="attribute" value="">
+                <p>Constitution</p>
+                <input type="text" class="attribute" value="">
+                <p>Intelligence</p>
+                <input type="text" class="attribute" value="">
+                <p>Wisdom</p>
+                <input type="text" class="attribute" value="">
+                <p>Charisma</p>
+                <input type="text" class="attribute" value="">
             </div>
 
+            <div class="profBonus">
+                <p>Proficiency Bonus</p>
+                <input type="text" value="X">
+            </div>
+           
+            <div class="saves">
+                <h2>Saving Throws</h2>
+                <p>Strength</p>
+                <input type="text" class="savingThrowAttr" value="X">
+                <p>Dexterity</p>
+                <input type="text" class="savingThrowAttr" value="X">
+                <p>Constitution</p>
+                <input type="text" class="savingThrowAttr" value="X">
+                <p>Intelligence</p>
+                <input type="text" class="savingThrowAttr" value="X">
+                <p>Wisdom</p>
+                <input type="text" class="savingThrowAttr" value="X">
+                <p>Charisma</p>
+                <input type="text" class="savingThrowAttr" value="X">
+            </div>
+           
+            <div class="skills">
+                <p>Skills</p>
+                <input type="text" class="skill" value="skill one">
+                <input type="text" class="skill" value="skill two">
+                <input type="text" class="skill" value="skill three">
+            </div>
+           
+            <div class="passivePerception">
+                <p>Perception</p>
+                <input type="text" value="X">
+            </div>
+           
+            <div class="proficiency">
+                <p>Languages and Tools</p>
+                <p>generated language</p>
+                <p>generated tool</p>
+            </div>
+           
+            <div class="hp">
+                <p>HP</p>
+                <input type="text" value="X">
+            </div>
+           
+            <div class="attacks">
+                <p>Weapons</p>
+                <p>generated weapon</p>
+                <p>generated weapon</p>
+            </div>
+           
+            <div class="equipment">
+                <p>Equipment</p>
+                <p>generated equip</p>
+                <p>generated equip</p>
+            </div>
+           
+            <div class="features">
+                <p>Features</p>
+                <p>generated feature</p>
+                <p>generated feature</p>
+            </div>
+           
+            <div class="spells">
+                <p>Spells</p>
+                <p>generated spell</p>
+                <p>generated spell</p>
+            </div>
+
+            <div id="characterImage"></div>
         </div>
     </body>
 </html>

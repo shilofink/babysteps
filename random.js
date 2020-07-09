@@ -109,19 +109,16 @@ function myFunc() {
     const race= getRandom(races)
     const clas= getRandom(classes)
     
-    document.getElementById("character").innerHTML = race;
+    document.getElementById("job").innerHTML = clas
+    document.getElementById("race").innerHTML = race
+    document.getElementById('characterImage').innerHTML=
+        `<img src="Dudes/${imgSel(race, clas)}" width="200" height="200">`
 
-    document.getElementById("job").innerHTML = clas;
-
-    document.getElementById('divImage').innerHTML=
-        `<img src="Dudes/${imgSel(race, clas)}" width="200" height="200">`;
-
-    const elements = document.getElementById("attributeNumbers").querySelectorAll("input")
+    const elements = document.getElementById("attributeList").querySelectorAll(".attribute")
     const attributeList= Array.from(elements)
     
     attributeList.map(formStuff => {
         formStuff.value= getRandom(attributes) 
-        console.log(formStuff)
     })   
 }
 
