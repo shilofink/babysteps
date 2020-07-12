@@ -32,7 +32,7 @@ div.stats {
 
 .wrapper {
     display:grid; 
-    grid-template-columns:repeat(4, 4fr);
+    grid-template-columns:repeat(4, 1fr);
     grid-gap:5px; 
 }
 
@@ -41,7 +41,8 @@ div.stats {
     border-style:solid;
     border-color:darkblue;
     border-width: 5px;
-    color: whitesmoke
+    color: whitesmoke;
+    grid-template-columns: 1fr;
 }
 
 .button {
@@ -63,6 +64,12 @@ div.stats {
     grid-column: 1;
 }
 
+.skill {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 50px;
+}
+
 .attacks {
     padding: 10px;
     width:400px;
@@ -82,7 +89,7 @@ div.stats {
 .featuresBox {
     position: relative;
    width: 90%;
-   height: 90%;
+   height: 50%;
    align-self: center;
    justify-self: center;
 }
@@ -90,4 +97,11 @@ div.stats {
 .spells {
 grid-column: 2/5;
 grid-row: 3;
+}
+
+.characterBasic {
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column: 1/5;
+    
 }
