@@ -101,7 +101,19 @@ grid-row: 3;
 
 .characterBasic {
     display:grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 2fr);
     grid-column: 1/5;
+    border-style:solid;
+    border-color:darkblue;
+    border-width: 5px;
+    padding: 5px;
+    grid-gap: 5px;
     
+}
+
+.character [type=text] {
+    width: 50px;
+    font-size: 10px;
+    padding: 8px;
+
 }
