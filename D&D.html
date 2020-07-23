@@ -20,18 +20,20 @@
             <input type="text" class="character" value="">
             <p>Level:</p>
             <input type="text" class="character" value="">
-     
+
+            
             
            <p>Inspiration:</p> 
            <input type="text" id="attribute" name="inspiriation"  value="">
            <p>Proficiency Bonus:</p>
-            <input type="text" id="attribute" name="profBonus" value="">
+            <input type="text" id="proficiency" name="profBonus" value="">
         </div>
         
         <div class="wrapper">
             
 
             <div class="stats">
+                <div id="attributeNumbers">
                     Attributes
                     <p>Strength</p>
                     <input type="text" class="attribute" value="">
@@ -45,12 +47,13 @@
                     <input type="text" class="attribute" value="">
                     <p>Charisma</p>
                     <input type="text" class="attribute" value="">
-
+                </div>    
+                <div id="saves">
                     <p>SAVES</p>
                     <p>Strength</p>
-                    <input type="text" class="attribute" value="">
+                    <input id="strength" type="text" class="attribute" value="">
                     <p>Dexterity</p>
-                    <input type="text" class="attribute" value="">
+                    <input id="dexterity" type="text" class="attribute" value="">
                     <p>Constituion</p>
                     <input type="text" class="attribute" value="">
                     <p>Intelligence</p>
@@ -59,6 +62,7 @@
                     <input type="text" class="attribute" value="">
                     <p>Charisma</p>
                     <input type="text" class="attribute" value="">
+                </div>
             </div>
 
             <div class="skills">SKILLS
@@ -132,6 +136,8 @@
                 <br>
                 <p style="text-align: center;">Attacks</p>
                 <textarea class="attacks"></textarea>
+                <p style="text-align: center;">Equipment</p>
+                <textarea class="attacks"></textarea>
 
             </div>
 
@@ -139,10 +145,15 @@
 
                 <textarea class="featuresBox"></textarea>
 
+                <p style="text-align: center;">Inventory</p>
+                <textarea class="attacks"></textarea>
+
                 <div class="randomPerson">
                     <div id="divImage">
                         <img src ="Dudes/Blank.png" id="myImage" width="50" height="50" >
                     </div>
+        
+
             </div>
             </div>
 

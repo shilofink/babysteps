@@ -7,6 +7,7 @@ const images = ["Dwarf Bard.jpg","Dwarf Cleric.jpg", "Dwarf Fighter.png", "Dwarf
 "Human Bard.png", "Human Cleric.jpg", "Human Fighter.jpg", "Human Rogue.jpg", "Human Wizard.jpg",
 "Orc Bard.jpg", "Orc Cleric.png","Orc Fighter.png", "Orc Rogue.jpg", "Orc Wizard.jpg"]
 const  attributes= [6,7,8,9,10,11,12,13,14,15,16,17,18]
+const level = 2
 
 function imgSel(race,clas) {
     if (race==="dwarf"){
@@ -108,6 +109,8 @@ function getRandom(array) {
 function myFunc() {
     const race= getRandom(races)
     const clas= getRandom(classes)
+
+    document.getElementById("proficiency").value = level;
     
     document.getElementById("character").innerHTML = race;
 
@@ -123,6 +126,30 @@ function myFunc() {
         formStuff.value= getRandom(attributes) 
         console.log(formStuff)
     })   
+    modifiers(attributeList) 
+}
+
+function modifiers(attributes) {
+    const attNumbers = attributes.map(saves => saves.value)
+    const mods = attNumbers.map(saves => {
+        saves = parseInt(saves)
+        if (saves >= 10) {
+            saves = saves + 1;
+        }
+        
+        saves = (saves - 11)/2;
+        return parseInt(saves)
+    })
+    const inputs = Array.from(document.getElementById("saves").querySelectorAll("input"));
+    mods.map(modNumber => {
+        inputs[0].value = modNumber; 
+        inputs.shift();
+    }) 
+    // broken, no verlyvkleyr !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    const profSaveStr = document.getElementById("strength");
+    profSaveStr.value += 2;
+    const profSaveDex = document.getElementById("dexterity");
+    profSaveDex.value += 2;
 }
 
 function fetchApi(randomApiUrl) {
