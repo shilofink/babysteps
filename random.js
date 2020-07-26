@@ -131,24 +131,22 @@ async function myFunc() {
 function modifiers(attributes) {
     const attNumbers = attributes.map(saves => saves.value)
     const mods = attNumbers.map(saves => {
-        saves = parseInt(saves)
-        if (saves >= 10) {
-            saves = saves + 1;
-        }
-        
-        saves = (saves - 11)/2;
-        return parseInt(saves)
+        return Math.floor((saves / 2) - 5)
     })
-    const inputs = Array.from(document.getElementById("saves").querySelectorAll("input"));
+
+    const inputs = Array
+        .from(document.getElementById("saves")
+        .querySelectorAll("input"))
+
     mods.map(modNumber => {
         inputs[0].value = modNumber; 
         inputs.shift();
     }) 
-    // broken, no verlyvkleyr !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    const profSaveStr = document.getElementById("strength");
-    profSaveStr.value += 2;
+
+    const profSaveStr = document.getElementById("strength")
+    profSaveStr.value = parseInt(profSaveStr.value) + 2
     const profSaveDex = document.getElementById("dexterity");
-    profSaveDex.value += 2;
+    profSaveDex.value = parseInt(profSaveDex.value) + 2
 }
 
 async function apiAsync(apiUrl) {
