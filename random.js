@@ -105,16 +105,32 @@ function getRandom(array) {
     return array[random]
 }
 
+function diceRoll(planesInteger) {
+    return Math.floor((Math.random() * planesInteger) + 1); 
+}
+
 async function myFunc() {
     const apiRaces = await apiAsync('races')
+    const race= getRandom(apiRaces.results)
+    const raceDetails= await apiAsync(`races/${race.index}`)
+    console.log(raceDetails)
     const apiClasses = await apiAsync('classes')
-    
-    const race= getRandom(apiRaces.results).name
+    const languages= raceDetails.languages.map(lan => lan.name)
+    const traits= raceDetails.traits.map(raceTrait => raceTrait.name)
+    console.log(diceRoll(10))
     const clas= getRandom(apiClasses.results).name
     
     document.getElementById("proficiency").value = level;
-    document.getElementById("character").innerHTML = race;
+    document.getElementById("character").innerHTML = race.name;
     document.getElementById("job").innerHTML = clas;
+    document.getElementById("speed").value = raceDetails.speed;
+    document.getElementById("languages").value = languages;
+    document.getElementById("features").innerHTML = traits;
+    document.getElementById("hitDie").value = diceRoll(10);
+    
+
+    
+    
     document.getElementById('divImage').innerHTML=
         `<img src="Dudes/${imgSel(race, clas)}" width="200" height="200">`;
 

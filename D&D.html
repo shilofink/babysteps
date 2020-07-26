@@ -129,8 +129,8 @@
             <div class="hp">
                 
                 <p>Armor Class</p><input type="text" class="hp" value="">
-                <p>Health Points</p><input type="text" class="hp" value="">
-                <p>Speed</p><input type="text" class="hp" value="">
+                <p>Health Points</p><input id="hitDie" type="text" class="hp" value="">
+                <p>Speed</p><input id="speed" type="text" class="hp" value="">
                 <br>
                 <p style="text-align: center;">Attacks</p>
                 <textarea class="attacks"></textarea>
@@ -141,7 +141,9 @@
 
             <div class="features">Features
 
-                <textarea class="featuresBox"></textarea>
+                <textarea id="features" class="featuresBox">
+            
+                </textarea>
 
                 <p style="text-align: center;">Inventory</p>
                 <textarea class="attacks"></textarea>
@@ -155,8 +157,10 @@
             </div>
             </div>
 
-            <div class="proficiency">LANGUAGES AND TOOLS</div>
-            <p></p>
+            <div>
+                <p>LANGUAGES AND TOOLS</p>
+                <input id="languages" value="">
+            </div>
         
             <div class="spells">SPELLS</div>
         </div>
