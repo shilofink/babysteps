@@ -6,21 +6,17 @@
     </head>
     
     <body>
-        <h1>Dungeons & Dragons Character Generator </h1>
-        <div class="button">
-            <button onclick="myFunc()">Start your adventure!</button>
-        </div>
+        <h1>Dungeons & Dragons Character Generator</h1>
+        <button onclick="myFunc()">Start your adventure!</button>
 
         <div class="characterBasic">
-            <p id="character">Race:</p>
-            <input type="text" class="character" value="">
-            <p id="job">Class:</p>
-            <input type="text" class="character" value="">
+            <p>Race:</p>
+            <input type="text" id="raceInput" value="">
+            <p>Class:</p>
+            <input type="text" id="classInput" value="">
             <p>Level:</p>
-            <input type="text" class="character" value="">
+            <input type="text" id="levelInput" value="">
 
-            
-            
            <p>Inspiration:</p> 
            <input type="text" id="attribute" name="inspiriation"  value="">
            <p>Proficiency Bonus:</p>
@@ -28,8 +24,6 @@
         </div>
         
         <div class="wrapper">
-            
-
             <div class="stats">
                 <div id="attributeNumbers">
                     Attributes
@@ -63,8 +57,8 @@
                 </div>
             </div>
 
-            <div class="skills">SKILLS
-                <br>
+            <div class="skills">
+                <p>SKILLS</p>
                 <label>Acrobatics</label>
                 <input type="text">
                 <br>
@@ -116,45 +110,34 @@
                 <label>Survival</label>
                 <input type="text">
                 
-                
                 <div class="passivePerception">
                     <p>Passive Perception</p>
                     <input type="text" class="passivePerception" value="">
                 </div>
-
-
-            
             </div>
 
             <div class="hp">
-                
-                <p>Armor Class</p><input type="text" class="hp" value="">
-                <p>Health Points</p><input id="hitDie" type="text" class="hp" value="">
-                <p>Speed</p><input id="speed" type="text" class="hp" value="">
+                <p>Armor Class</p><input type="text" value="">
+                <p>Health Points</p><input id="hitDie" type="text" value="">
+                <p>Speed</p><input id="speed" type="text" value="">
                 <br>
-                <p style="text-align: center;">Attacks</p>
+                <p>Attacks</p>
                 <textarea class="attacks"></textarea>
-                <p style="text-align: center;">Equipment</p>
+                <p>Equipment</p>
                 <textarea class="attacks"></textarea>
-
             </div>
 
-            <div class="features">Features
-
-                <textarea id="features" class="featuresBox">
-            
-                </textarea>
-
-                <p style="text-align: center;">Inventory</p>
+            <div class="features">
+                <p>Features</p>
+                <textarea id="features"></textarea>
+                <p>Inventory</p>
                 <textarea class="attacks"></textarea>
 
                 <div class="randomPerson">
                     <div id="divImage">
                         <img src ="Dudes/Blank.png" id="myImage" width="50" height="50" >
                     </div>
-        
-
-            </div>
+                </div>
             </div>
 
             <div>
@@ -162,7 +145,9 @@
                 <input id="languages" value="">
             </div>
         
-            <div class="spells">SPELLS</div>
+            <div class="spells">
+                <p>SPELLS</p>
+            </div>
         </div>
     </body>
 </html>

@@ -6,7 +6,7 @@ const images = ["Dwarf Bard.jpg","Dwarf Cleric.jpg", "Dwarf Fighter.png", "Dwarf
 "Human Bard.png", "Human Cleric.jpg", "Human Fighter.jpg", "Human Rogue.jpg", "Human Wizard.jpg",
 "Orc Bard.jpg", "Orc Cleric.png","Orc Fighter.png", "Orc Rogue.jpg", "Orc Wizard.jpg"]
 const  attributes= [6,7,8,9,10,11,12,13,14,15,16,17,18]
-const level = 2
+const level = 1
 
 function imgSel(race,clas) {
     if (race==="Dwarf"){
@@ -98,7 +98,7 @@ function imgSel(race,clas) {
         return images[24]
         }
     }
-} 
+}
 
 function getRandom(array) {
     const random = Math.floor(Math.random() * array.length)
@@ -120,17 +120,23 @@ async function myFunc() {
     console.log(diceRoll(10))
     const clas= getRandom(apiClasses.results).name
     
+    document.getElementById("raceInput").value = race.name;
+    document.getElementById("classInput").value = clas;
+    document.getElementById("levelInput").value = level
+    //inspiration
     document.getElementById("proficiency").value = level;
-    document.getElementById("character").innerHTML = race.name;
-    document.getElementById("job").innerHTML = clas;
-    document.getElementById("speed").value = raceDetails.speed;
-    document.getElementById("languages").value = languages;
-    document.getElementById("features").innerHTML = traits;
+
+    //armor class
     document.getElementById("hitDie").value = diceRoll(10);
+    document.getElementById("speed").value = raceDetails.speed;
+
+    document.getElementById("features").innerHTML = traits;
+    //inventory
+
+    document.getElementById("languages").value = languages;
+    //spells
     
 
-    
-    
     document.getElementById('divImage').innerHTML=
         `<img src="Dudes/${imgSel(race, clas)}" width="200" height="200">`;
 
