@@ -109,34 +109,50 @@ function diceRoll(planesInteger) {
     return Math.floor((Math.random() * planesInteger) + 1); 
 }
 
+function skills(attributes) {
+    const attNumbers = attributes.map(modifier => modifier.value)
+    const mods = attNumbers.map(modifier => {
+        return Math.floor((modifier / 2) - 5)
+    })
+    const strengthInputs = Array.from(document.getElementById("skill").querySelectorAll("#strength"))
+    strengthInputs.map(skill => skill.value = mods[0])
+    const dexterityInputs = Array.from(document.getElementById("skill").querySelectorAll("#dexterity"))
+    dexterityInputs.map(skill => skill.value = mods[1])
+    const intelligenceInputs = Array.from(document.getElementById("skill").querySelectorAll("#intelligence"))
+    intelligenceInputs.map(skill => skill.value = mods[2])
+    const wisdomInputs = Array.from(document.getElementById("skill").querySelectorAll("#wisdom"))
+    wisdomInputs.map(skill => skill.value = mods[4])
+    const charismaInputs = Array.from(document.getElementById("skill").querySelectorAll("#charisma"))
+    charismaInputs.map(skill => skill.value = mods[5])
+}
+
 async function myFunc() {
     const apiRaces = await apiAsync('races')
     const race= getRandom(apiRaces.results)
     const raceDetails= await apiAsync(`races/${race.index}`)
-    console.log(raceDetails)
     const apiClasses = await apiAsync('classes')
     const languages= raceDetails.languages.map(lan => lan.name)
     const traits= raceDetails.traits.map(raceTrait => raceTrait.name)
-    console.log(diceRoll(10))
-    const clas= getRandom(apiClasses.results).name
+    const clas= getRandom(apiClasses.results)
+    
+    const classDetails = await apiAsync(`classes/${clas.index}`)
+    
+    const classLevels = await apiAsync(`classes/${clas.index}/levels/${level}`)
     
     document.getElementById("raceInput").value = race.name;
-    document.getElementById("classInput").value = clas;
+    document.getElementById("classInput").value = clas.name;
     document.getElementById("levelInput").value = level
     //inspiration
-    document.getElementById("proficiency").value = level;
-
-    //armor class
+    document.getElementById("proficiency").value = classLevels.prof_bonus;
+     //armor class
     document.getElementById("hitDie").value = diceRoll(10);
     document.getElementById("speed").value = raceDetails.speed;
 
     document.getElementById("features").innerHTML = traits;
     //inventory
-
     document.getElementById("languages").value = languages;
     //spells
     
-
     document.getElementById('divImage').innerHTML=
         `<img src="Dudes/${imgSel(race, clas)}" width="200" height="200">`;
 
@@ -145,9 +161,9 @@ async function myFunc() {
     
     attributeList.map(formStuff => {
         formStuff.value= getRandom(attributes) 
-        console.log(formStuff)
     })   
     modifiers(attributeList) 
+    skills(attributeList)
 }
 
 function modifiers(attributes) {
