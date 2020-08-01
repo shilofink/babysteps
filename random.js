@@ -131,11 +131,20 @@ async function myFunc() {
     const race= getRandom(apiRaces.results)
     const raceDetails= await apiAsync(`races/${race.index}`)
     const apiClasses = await apiAsync('classes')
+    // List of Proficiencies
     const languages= raceDetails.languages.map(lan => lan.name)
+    
     const traits= raceDetails.traits.map(raceTrait => raceTrait.name)
     const clas= getRandom(apiClasses.results)
     
     const classDetails = await apiAsync(`classes/${clas.index}`)
+    
+    const proficiencies= classDetails.proficiencies.map(prof => prof.name)
+    const startingEquipment= await `https://www.dnd5eapi.co${classDetails.starting_equipment.url}`
+    const other= startingEquipment
+    console.log(other)
+    
+    
     
     const classLevels = await apiAsync(`classes/${clas.index}/levels/${level}`)
     
@@ -151,6 +160,8 @@ async function myFunc() {
     document.getElementById("features").innerHTML = traits;
     //inventory
     document.getElementById("languages").value = languages;
+    document.getElementById('proficiencies').value = proficiencies
+    document.getElementById('inventory').value = startingEquipment.starting_equipment
     //spells
     
     document.getElementById('divImage').innerHTML=
