@@ -216,3 +216,115 @@ div.stats {
                 Survival <input type="text" class="skill" value="">
 
 
+
+
+function imgSel(race,clas) {
+    if (race==="Dwarf"){
+        if (clas==="Bard") {
+            return images[0]
+            }
+        if (clas==="Cleric") {
+            return images[1]
+            }
+        if (clas==="Fighter") {
+            return images[2]
+            }
+        if (clas==="Rogue") {
+            return images[3]
+            }
+        if (clas==="Wizard") {
+            return images[4]
+            }
+        }
+
+        if (race==="Elf"){
+        if (clas==="Bard") {
+            return images[5]
+                }
+        if (clas==="Cleric") {
+            return images[6]
+            }
+        if (clas==="Fighter") {
+            return images[7]
+            }
+        if (clas==="Rogue") {
+            return images[8]
+            }
+        if (clas==="Wizard") {
+            return images[9]
+            }
+        }
+    
+    if (race==="Halfling"){
+        if (clas==="Bard") {
+            return images[10]
+        }
+        if (clas==="Cleric") {
+            return images[11]
+        }
+        if (clas==="Fighter") {
+            return images[12]
+        }
+        if (clas==="Rogue") {
+            return images[13]
+        }
+        if (clas==="Wizard") {
+            return images[14]
+        }
+    }
+
+    if (race==="Human"){
+        if (clas==="Bard") {
+            return images[15]
+        }
+        if (clas==="Cleric") {
+            return images[16]
+        }
+        if (clas==="Fighter") {
+            return images[17]
+        }
+        if (clas==="Rogue") {
+            return images[18]
+        }
+        if (clas==="Wizard") {
+            return images[19]
+        }
+    }
+
+    if (race==="Orc"){
+    if (clas==="Bard") {
+        return images[20]
+        }
+    if (clas==="Cleric") {
+        return images[21]
+        }
+    if (clas==="Fighter") {
+        return images[22]
+        }
+    if (clas==="Rogue") {
+        return images[23]
+        }
+    if (clas==="Wizard") {
+        return images[24]
+        }
+    }
+}
+HTML
+ document.getElementById('divImage').innerHTML=
+        `<img src="Dudes/${imgSel(race, clas)}" width="200" height="200">`;
+
+
+        <div class="randomPerson">
+                    <div id="divImage">
+                        <img src ="Dudes/Blank.png" id="myImage" width="50" height="50" >
+                    </div>
+                </div>
+
+
+                const races = ["human", "elf", "dwarf", "orc", "halfling"]
+const classes = ["fighter", "rogue", "wizard", "cleric", "bard"]
+const images = ["Dwarf Bard.jpg","Dwarf Cleric.jpg", "Dwarf Fighter.png", "Dwarf Rogue.png", "Dwarf Wizard.jpg",
+"Elf Bard.jpg", "Elf Cleric.jpg", "Elf Fighter.png", "Elf Rogue.jpg", "Elf Wizard.png", 
+"Halfling Bard.jpg", "Halfling Cleric.png", "Halfling Fighter.jpg", "Halfling Rogue.jpg", "Halfling Wizard.jpg",  
+"Human Bard.png", "Human Cleric.jpg", "Human Fighter.jpg", "Human Rogue.jpg", "Human Wizard.jpg",
+"Orc Bard.jpg", "Orc Cleric.png","Orc Fighter.png", "Orc Rogue.jpg", "Orc Wizard.jpg"]
