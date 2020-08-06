@@ -15,11 +15,11 @@ async function myFunc() {
     const classDetails = await apiAsync(`classes/${clas.index}`)
     
     const proficiencies= classDetails.proficiencies.map(prof => prof.name)
-    const startingEquipmentURL= classDetails.starting_equipment.url
-    
-    const startingEquipment = await apiAsync(startingEquipmentURL.substring(5))
-    
-    console.log(startingEquipment.choice_2)
+
+    //here buildInventory returns full item Objects, since we'll probably use the URLs later
+    //inventoryText is unwrapping the name and the quantity
+    const inventory = await buildInventory(classDetails.starting_equipment.url)
+    const inventoryText = inventory.map(item => `${item.quantity} ${item.item.name}`)
     
     const classLevels = await apiAsync(`classes/${clas.index}/levels/${level}`)
     
@@ -36,10 +36,31 @@ async function myFunc() {
     //inventory
     document.getElementById("languages").value  = languages;
     document.getElementById('proficiencies').value = proficiencies
-    document.getElementById('inventory').value = startingEquipment.starting_equipment
+    document.getElementById('inventory').value = inventoryText
     //spells
 
     generateAttributes()   
+}
+
+async function buildInventory(startingEquipmentURL) {
+    const chosenInventory = []
+    const fullInventory = await apiAsync(startingEquipmentURL.substring(5))
+    const inventoryAsArray = Object.values(fullInventory)   //just converting from an Object to an Array
+
+    //if lines 51-55 don't make sense no worries, i can explain later
+    const choices = inventoryAsArray.filter(entry => {
+        try {
+            return entry[0].choose
+        } catch(error){}
+    })    
+
+    //the .push function just adds whatever is inside the parantheses to the array, in this case chosenInventory
+    choices.map(category => {
+        const choice = getRandom(category).from
+        chosenInventory.push(getRandom(choice))
+    })
+
+    return chosenInventory
 }
 
 async function apiAsync(apiUrl) {
