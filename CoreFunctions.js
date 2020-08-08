@@ -47,15 +47,16 @@ function skills(attributes) {
     const mods = attNumbers.map(modifier => {
         return Math.floor((modifier / 2) - 5)
     })
-    const strengthInputs = Array.from(document.getElementById("skill").querySelectorAll("#strength"))
+    const strengthInputs = Array.from(document.getElementsByClassName("strength"))
+    console.log(strengthInputs)
     strengthInputs.map(skill => skill.value = mods[0])
-    const dexterityInputs = Array.from(document.getElementById("skill").querySelectorAll("#dexterity"))
+    const dexterityInputs = Array.from(document.getElementsByClassName("dexterity"))
     dexterityInputs.map(skill => skill.value = mods[1])
-    const intelligenceInputs = Array.from(document.getElementById("skill").querySelectorAll("#intelligence"))
+    const intelligenceInputs = Array.from(document.getElementsByClassName("intelligence"))
     intelligenceInputs.map(skill => skill.value = mods[2])
-    const wisdomInputs = Array.from(document.getElementById("skill").querySelectorAll("#wisdom"))
+    const wisdomInputs = Array.from(document.getElementsByClassName("wisdom"))
     wisdomInputs.map(skill => skill.value = mods[4])
-    const charismaInputs = Array.from(document.getElementById("skill").querySelectorAll("#charisma"))
+    const charismaInputs = Array.from(document.getElementsByClassName("charisma"))
     charismaInputs.map(skill => skill.value = mods[5])
     document.getElementById("passivePerception").value= mods[4] +10
 }
