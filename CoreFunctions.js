@@ -37,9 +37,9 @@ function modifiers(attributes) {
     }) 
 
     const profSaveStr = document.getElementById("strength")
-    profSaveStr.value = parseInt(profSaveStr.value) + 2
+    profSaveStr.value = parseInt(profSaveStr.value) 
     const profSaveDex = document.getElementById("dexterity");
-    profSaveDex.value = parseInt(profSaveDex.value) + 2
+    profSaveDex.value = parseInt(profSaveDex.value) 
 }
 
 function skills(attributes) {
@@ -48,7 +48,6 @@ function skills(attributes) {
         return Math.floor((modifier / 2) - 5)
     })
     const strengthInputs = Array.from(document.getElementsByClassName("strength"))
-    console.log(strengthInputs)
     strengthInputs.map(skill => skill.value = mods[0])
     const dexterityInputs = Array.from(document.getElementsByClassName("dexterity"))
     dexterityInputs.map(skill => skill.value = mods[1])
@@ -59,5 +58,13 @@ function skills(attributes) {
     const charismaInputs = Array.from(document.getElementsByClassName("charisma"))
     charismaInputs.map(skill => skill.value = mods[5])
     document.getElementById("passivePerception").value= mods[4] +10
-}
+    
 
+    const profBonus = document.getElementById("proficiency").value
+    const skillSelect = document.getElementById("acrobatics").value
+    const skillBonus = parseInt(skillSelect) + parseInt(profBonus)
+    document.getElementById("acrobatics").value = skillBonus
+    
+    console.log(skillBonus)
+
+}
