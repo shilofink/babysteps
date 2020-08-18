@@ -36,10 +36,7 @@ function modifiers(attributes) {
         inputs.shift();
     }) 
 
-    const profSaveStr = document.getElementById("strength")
-    profSaveStr.value = parseInt(profSaveStr.value) 
-    const profSaveDex = document.getElementById("dexterity");
-    profSaveDex.value = parseInt(profSaveDex.value) 
+    
 }
 
 function skills(attributes) {
@@ -65,6 +62,5 @@ function skills(attributes) {
     const skillBonus = parseInt(skillSelect) + parseInt(profBonus)
     document.getElementById("acrobatics").value = skillBonus
     
-    console.log(skillBonus)
 
 }

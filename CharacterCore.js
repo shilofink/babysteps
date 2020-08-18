@@ -28,8 +28,22 @@ async function myFunc() {
 
     // grabs specific class name from APICLASSES and looks in the INDEX
     const classDetails = await apiAsync(`classes/${clas.index}`)
+
+    const classLevels = await apiAsync(`classes/${clas.index}/levels/${level}`)
+
+    generateAttributes()  
     
     const proficiencies= classDetails.proficiencies.map(prof => prof.name)
+
+    console.log(proficiencies)
+
+    const savingThrows = classDetails.saving_throws.map(save => save.name)
+
+    const profSave1 = document.getElementById(savingThrows.pop())
+    profSave1.value = parseInt(profSave1.value) + classLevels.prof_bonus
+    const profSave2 = document.getElementById(savingThrows.pop())
+    profSave2.value = parseInt(profSave2.value) + classLevels.prof_bonus
+
 
 
     
@@ -38,7 +52,7 @@ async function myFunc() {
         const inventory = await buildInventory(classDetails.starting_equipment.url) //(druid) /api/starting-equipment/4
        //const inventoryText = inventory.map(item => `${item.quantity} ${item.item.name}`)
 
-       const classLevels = await apiAsync(`classes/${clas.index}/levels/${level}`)
+       
     
         
        document.getElementById("raceInput").value = race.name;
@@ -58,7 +72,7 @@ async function myFunc() {
       //  document.getElementById('inventory').value = inventoryText
         //spells
     
-        generateAttributes()   
+         
 }
     
     async function buildInventory(startingEquipmentURL) {
