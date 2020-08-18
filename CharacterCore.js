@@ -28,6 +28,12 @@ async function myFunc() {
 
     // grabs specific class name from APICLASSES and looks in the INDEX
     const classDetails = await apiAsync(`classes/${clas.index}`)
+    const proficiencies= classDetails.proficiencies.map(prof => prof.name)
+
+    //inventoryText is unwrapping the name and the quantity
+    const inventory = await buildInventory(classDetails.starting_equipment.url)
+    const inventoryText = inventory.map(item => `${item.quantity || 1} ${item.equipment.name}`)
+    
 
     const classLevels = await apiAsync(`classes/${clas.index}/levels/${level}`)
 
@@ -43,18 +49,7 @@ async function myFunc() {
     profSave1.value = parseInt(profSave1.value) + classLevels.prof_bonus
     const profSave2 = document.getElementById(savingThrows.pop())
     profSave2.value = parseInt(profSave2.value) + classLevels.prof_bonus
-
-
-
-    
-        //here buildInventory returns full item Objects, since we'll probably use the URLs later
-        //inventoryText is unwrapping the name and the quantity
-        const inventory = await buildInventory(classDetails.starting_equipment.url) //(druid) /api/starting-equipment/4
-       //const inventoryText = inventory.map(item => `${item.quantity} ${item.item.name}`)
-
        
-    
-        
        document.getElementById("raceInput").value = race.name;
        document.getElementById("classInput").value = clas.name;
        document.getElementById("levelInput").value = level
@@ -69,32 +64,9 @@ async function myFunc() {
         //inventory
         document.getElementById("languages").value  = languages;
         document.getElementById('proficiencies').value = proficiencies
-      //  document.getElementById('inventory').value = inventoryText
+        document.getElementById('inventory').value = inventoryText
         //spells
-    
-         
 }
-    
-    async function buildInventory(startingEquipmentURL) {
-        const chosenInventory = []
-        const fullInventory = await apiAsync(startingEquipmentURL.substring(5))
-        const inventoryAsArray = Object.values(fullInventory)   //just converting from an Object to an Array
-    
-        //if lines 51-55 don't make sense no worries, i can explain later
-        const choices = inventoryAsArray.filter(entry => {
-            try {
-                return entry[0].choose
-            } catch(error){}
-        })    
-    
-        //the .push function just adds whatever is inside the parantheses to the array, in this case chosenInventory
-        choices.map(category => {
-            const choice = getRandom(category).from
-            chosenInventory.push(getRandom(choice))
-        })
-    
-        return chosenInventory
-    }
     
     async function apiAsync(apiUrl) {
         return fetch(`https://www.dnd5eapi.co/api/${apiUrl}`).then(res => res.json())
