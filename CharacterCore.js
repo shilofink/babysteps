@@ -4,7 +4,6 @@ const level = 1
 async function myFunc() {
     // grabs all races from API
     const apiRaces = await apiAsync('races')
-    
 
     // grabs random race from APIRACES
     const race= getRandom(apiRaces.results)
@@ -28,7 +27,6 @@ async function myFunc() {
 
     // grabs specific class name from APICLASSES and looks in the INDEX
     const classDetails = await apiAsync(`classes/${clas.index}`)
-    const proficiencies= classDetails.proficiencies.map(prof => prof.name)
 
     //inventoryText is unwrapping the name and the quantity
     const inventory = await buildInventory(classDetails.starting_equipment.url)
@@ -40,9 +38,6 @@ async function myFunc() {
     generateAttributes()  
     
     const proficiencies= classDetails.proficiencies.map(prof => prof.name)
-
-    console.log(proficiencies)
-
     const savingThrows = classDetails.saving_throws.map(save => save.name)
 
     const profSave1 = document.getElementById(savingThrows.pop())
@@ -50,24 +45,24 @@ async function myFunc() {
     const profSave2 = document.getElementById(savingThrows.pop())
     profSave2.value = parseInt(profSave2.value) + classLevels.prof_bonus
        
-       document.getElementById("raceInput").value = race.name;
-       document.getElementById("classInput").value = clas.name;
-       document.getElementById("levelInput").value = level
-       //inspiration
-       document.getElementById("proficiency").value = classLevels.prof_bonus;
-        //armor class
-       document.getElementById("hitDie").value = diceRoll(10);
-       document.getElementById("speed").value = raceDetails.speed;
-   
-       document.getElementById("features").innerHTML = traits;    
-    
-        //inventory
-        document.getElementById("languages").value  = languages;
-        document.getElementById('proficiencies').value = proficiencies
-        document.getElementById('inventory').value = inventoryText
-        //spells
+    document.getElementById("raceInput").value = race.name;
+    document.getElementById("classInput").value = clas.name;
+    document.getElementById("levelInput").value = level
+    //inspiration
+    document.getElementById("proficiency").value = classLevels.prof_bonus;
+    //armor class
+    document.getElementById("hitDie").value = diceRoll(10);
+    document.getElementById("speed").value = raceDetails.speed;
+
+    document.getElementById("features").innerHTML = traits;    
+
+    //inventory
+    document.getElementById("languages").value  = languages;
+    document.getElementById('proficiencies').value = proficiencies
+    document.getElementById('inventory').value = inventoryText
+    //spells
 }
     
-    async function apiAsync(apiUrl) {
-        return fetch(`https://www.dnd5eapi.co/api/${apiUrl}`).then(res => res.json())
-    }
+function apiAsync(apiUrl) {
+    return fetch(`https://www.dnd5eapi.co/api/${apiUrl}`).then(res => res.json())
+}
