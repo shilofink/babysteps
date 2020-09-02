@@ -1,25 +1,26 @@
 async function buildInventory(startingEquipmentURL) {
   const chosenInventory = []
   const apiInventoryData = await apiAsync(startingEquipmentURL.substring(5))
-
+  
   //starting equipment
   apiInventoryData.starting_equipment.map(item => {
       chosenInventory.push(item)
-  })
-
-  //chosen equipment
-  const choices = await makeChoices(apiInventoryData.starting_equipment_options)
-  choices.map(choice => chosenInventory.push(choice))
-
-  return chosenInventory.flat()
+    })
+    
+    //chosen equipment
+    const choices = await makeChoices(apiInventoryData.starting_equipment_options)
+    choices.map(choice => chosenInventory.push(choice))
+    
+    return chosenInventory.flat()
 }
 
 async function makeChoices(options) {
-  const chosenLevelOne = await Promise.all(options.map(async option => {
-          const chosenOptions = await chooseFrom(option.choose, option.from)
-          return chosenOptions.flat()
-      })
-  )
+    const chosenLevelOne = await Promise.all(options.map(async option => {
+        const chosenOptions = await chooseFrom(option.choose, option.from)
+        return chosenOptions.flat()
+    })
+    )
+    console.log()
 
   const unwrapped = []
   chosenLevelOne.map(option => {

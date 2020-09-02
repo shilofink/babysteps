@@ -4,6 +4,7 @@ function getRandom(array) {
 }
 
 
+
 function diceRoll(planesInteger) {
     return Math.floor((Math.random() * planesInteger) + 1); 
 }
@@ -56,11 +57,6 @@ function skills(attributes) {
     charismaInputs.map(skill => skill.value = mods[5])
     document.getElementById("passivePerception").value= mods[4] +10
     
-
-    const profBonus = document.getElementById("proficiency").value
-    const skillSelect = document.getElementById("acrobatics").value
-    const skillBonus = parseInt(skillSelect) + parseInt(profBonus)
-    document.getElementById("acrobatics").value = skillBonus
     
 
 }
