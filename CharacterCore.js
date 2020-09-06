@@ -51,7 +51,7 @@ async function myFunc() {
     
     
     //inventoryText is unwrapping the name and the quantity
-    const inventory = await buildInventory(classDetails.starting_equipment.url)
+    const inventory = await buildInventory(classDetails.starting_equipment)
     const inventoryText = inventory.map(item => `${item.quantity || 1} ${item.equipment.name}`)
     
     
