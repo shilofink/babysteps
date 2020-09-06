@@ -57,7 +57,8 @@ async function myFunc() {
     
     const classLevels = await apiAsync(`classes/${clas.index}/levels/${level}`)
     
-    generateAttributes()  
+    generateAttributes() 
+   
     
     const proficiencies= classDetails.proficiencies.map(prof => prof.name)
     const savingThrows = classDetails.saving_throws.map(save => save.name)
@@ -74,7 +75,7 @@ async function myFunc() {
     document.getElementById("proficiency").value = classLevels.prof_bonus;
     
     //armor class
-    document.getElementById("hitDie").value = diceRoll(10);
+    document.getElementById("hitDie").value = hitPointStart(classDetails.hit_die);
     document.getElementById("speed").value = raceDetails.speed;
     
     document.getElementById("features").innerHTML = traits;    
@@ -90,6 +91,12 @@ async function myFunc() {
     
 }
 
+function hitPointStart(hitDie){
+    const con = document.getElementById("constitution").value 
+    const conMod = Math.floor((con / 2) - 5)
+    const total = hitDie + conMod
+    return total
+}
 function apiAsync(apiUrl) {
     return fetch(`https://www.dnd5eapi.co/api/${apiUrl}`).then(res => res.json())
 }
