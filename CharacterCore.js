@@ -29,7 +29,7 @@ async function myFunc() {
     const classDetails = await apiAsync(`classes/${clas.index}`)
 
     generateProficiency(classDetails)
-  
+
 
 
     // const skillProficiency = classDetails.proficiency_choices[0]
@@ -45,21 +45,24 @@ async function myFunc() {
     // skillProficiency4 = skill2[0].name.substring(7).toLowerCase()
     // console.log(skillProficiency3)
     // console.log(skillProficiency4)
-    
-    
-    
-    
+
+
+
+
     
     //inventoryText is unwrapping the name and the quantity
     const inventory = await buildInventory(classDetails.starting_equipment)
     const inventoryText = inventory.map(item => `${item.quantity || 1} ${item.equipment.name}`)
-    
+
+    const equipment = await generateEquipment(inventory)
+    const equipmentText = equipment.map(item => `${item.quantity || 1} ${item.equipment.name}`)
+
+    const attacks = generateAttacks(equipment)
     
     const classLevels = await apiAsync(`classes/${clas.index}/levels/${level}`)
     
     generateAttributes() 
    
-    
     const proficiencies= classDetails.proficiencies.map(prof => prof.name)
     const savingThrows = classDetails.saving_throws.map(save => save.name)
     
@@ -71,19 +74,16 @@ async function myFunc() {
     document.getElementById("raceInput").value = race.name;
     document.getElementById("classInput").value = clas.name;
     document.getElementById("levelInput").value = level
-    //inspiration
     document.getElementById("proficiency").value = classLevels.prof_bonus;
-    
     //armor class
     document.getElementById("hitDie").value = hitPointStart(classDetails.hit_die);
     document.getElementById("speed").value = raceDetails.speed;
-    
     document.getElementById("features").innerHTML = traits;    
-    
-    //inventory
     document.getElementById("languages").value  = languages;
     document.getElementById('proficiencies').value = proficiencies
     document.getElementById('inventory').value = inventoryText
+    document.getElementById('equipment').value = equipmentText
+    document.getElementById('attacks').innerHTML = attacks
     //spells
     const profBonus = document.getElementById("proficiency").value
     document.getElementById(skillProficiency3).value = parseInt(document.getElementById(skillProficiency3).value) + parseInt(profBonus)
