@@ -7,6 +7,7 @@
         <script src="Inventory.js"></script>
         <script src="Proficiency.js"></script>
         <script src="Equipment.js"></script>
+        <script src="Spells.js"></script>
     </head>
     
     <body>
@@ -14,6 +15,8 @@
         <button onclick="myFunc()">Start your adventure!</button>
 
         <div class="characterBasic">
+            <p>Name:</p>
+            <input type="text" id="nameInput" value="">
             <p>Race:</p>
             <input type="text" id="raceInput" value="">
             <p>Class:</p>
@@ -152,6 +155,7 @@
         
             <div class="spells">
                 <p>SPELLS</p>
+                <div id="spells"></div>
             </div>
         </div>
     </body>

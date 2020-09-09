@@ -37,9 +37,11 @@ async function myFunc() {
     const equipment = await generateEquipment(inventory)
     const equipmentText = equipment.map(item => `${item.quantity || 1} ${item.equipment.name}`)
 
+    const classLevels = await apiAsync(`classes/${clas.index}/levels/${level}`)
+
+    const spells = await generateSpells(classDetails, classLevels)
     const attacks = generateAttacks(equipment)
     
-    const classLevels = await apiAsync(`classes/${clas.index}/levels/${level}`)
     
     generateAttributes() 
    
@@ -64,7 +66,7 @@ async function myFunc() {
     document.getElementById('inventory').value = inventoryText
     document.getElementById('equipment').value = equipmentText
     document.getElementById('attacks').innerHTML = attacks
-    //spells
+    document.getElementById('spells').innerHTML = spells
     const profBonus = document.getElementById("proficiency").value
     document.getElementById(skillProficiency3).value = parseInt(document.getElementById(skillProficiency3).value) + parseInt(profBonus)
     document.getElementById(skillProficiency4).value = parseInt(document.getElementById(skillProficiency4).value) + parseInt(profBonus)
@@ -77,6 +79,7 @@ function hitPointStart(hitDie){
     const total = hitDie + conMod
     return total
 }
+
 function apiAsync(apiUrl) {
     return fetch(`https://www.dnd5eapi.co/api/${apiUrl}`).then(res => res.json())
 }
