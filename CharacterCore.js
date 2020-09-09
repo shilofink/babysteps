@@ -27,29 +27,9 @@ async function myFunc() {
 
     // grabs specific class name from APICLASSES and looks in the INDEX
     const classDetails = await apiAsync(`classes/${clas.index}`)
-
+    console.log(classDetails.name)
     generateProficiency(classDetails)
-
-
-
-    // const skillProficiency = classDetails.proficiency_choices[0]
-    // const skillProficiency2 = skillProficiency.from
-    
-    // const randomSkill = Math.floor(Math.random() * skillProficiency2.length)
-
-    // const skill1 = skillProficiency2.splice(randomSkill, 1)
-    // const skill2 = skillProficiency2.splice(randomSkill, 1)
-
-
-    // skillProficiency3 = skill1[0].name.substring(7).toLowerCase()
-    // skillProficiency4 = skill2[0].name.substring(7).toLowerCase()
-    // console.log(skillProficiency3)
-    // console.log(skillProficiency4)
-
-
-
-
-    
+  
     //inventoryText is unwrapping the name and the quantity
     const inventory = await buildInventory(classDetails.starting_equipment)
     const inventoryText = inventory.map(item => `${item.quantity || 1} ${item.equipment.name}`)
