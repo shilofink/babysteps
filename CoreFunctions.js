@@ -18,7 +18,6 @@ function generateAttributes() {
     })   
     
     modifiers(attributeList) 
-    
     skills(attributeList)
 }
 
@@ -37,7 +36,14 @@ function modifiers(attributes) {
         inputs.shift();
     }) 
 
+    const modifierInputs = Array
+        .from(document.getElementById("modifiers")
+        .querySelectorAll("input"))
     
+    mods.map(modNumber => {
+        modifierInputs[0].value = modNumber; 
+        modifierInputs.shift();
+    }) 
 }
 
 function skills(attributes) {
