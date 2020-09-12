@@ -36,15 +36,19 @@ async function myFunc() {
 
     const equipment = await generateEquipment(inventory)
     const equipmentText = equipment.map(item => `${item.quantity || 1} ${item.equipment.name}`)
-
+        
+    console.log(equipmentText)
+    
+    
+    
     const classLevels = await apiAsync(`classes/${clas.index}/levels/${level}`)
-
+    
     const spells = await generateSpells(classDetails, classLevels)
     const attacks = generateAttacks(equipment)
     
     
     generateAttributes() 
-   
+    
     const proficiencies= classDetails.proficiencies.map(prof => prof.name)
     const savingThrows = classDetails.saving_throws.map(save => save.name)
     
@@ -57,7 +61,23 @@ async function myFunc() {
     document.getElementById("classInput").value = clas.name;
     document.getElementById("levelInput").value = level
     document.getElementById("proficiency").value = classLevels.prof_bonus;
-    //armor class
+    document.getElementById("armorClass").value = parseInt(document.getElementById("dexMod").value) + 10
+    const armorType = document.getElementById("armorClass").value
+        if (equipmentText.includes("1 Leather")){
+            document.getElementById("armorClass").value = parseInt(document.getElementById("armorClass").value) + 1
+        }
+        else if(equipmentText.includes("1 Scale Mail")){
+            document.getElementById("armorClass").value = parseInt(document.getElementById("armorClass").value) + 4
+        }
+        else if(equipmentText.includes("1 Chain Mail")){
+            document.getElementById("armorClass").value = parseInt(document.getElementById("armorClass").value) + 6
+        }
+    const shieldType = document.getElementById("armorClass").value
+    if (equipmentText.includes("1 Shield")){
+        document.getElementById("armorClass").value = parseInt(document.getElementById("armorClass").value) + 2
+    }    
+    console.log(armorType)
+    console.log(shieldType)
     document.getElementById("hitDie").value = hitPointStart(classDetails.hit_die);
     document.getElementById("speed").value = raceDetails.speed;
     document.getElementById("features").innerHTML = traits;    
@@ -79,6 +99,10 @@ function hitPointStart(hitDie){
     const total = hitDie + conMod
     return total
 }
+
+
+
+  
 
 function apiAsync(apiUrl) {
     return fetch(`https://www.dnd5eapi.co/api/${apiUrl}`).then(res => res.json())

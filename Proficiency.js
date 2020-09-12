@@ -8,8 +8,7 @@ function generateProficiency(classDetails) {
         const skill2 = skillProficiency2.splice(randomSkill2, 1)
         skillProficiency3 = skill1[0].name.substring(7).toLowerCase()
         skillProficiency4 = skill2[0].name.substring(7).toLowerCase()
-        console.log(skillProficiency3)
-        console.log(skillProficiency4)
+       
         
     }
     else{
@@ -21,8 +20,7 @@ function generateProficiency(classDetails) {
         const skill2 = skillProficiency2.splice(randomSkill2, 1)    
         skillProficiency3 = skill1[0].name.substring(7).toLowerCase()
         skillProficiency4 = skill2[0].name.substring(7).toLowerCase()
-        console.log(skillProficiency3)
-        console.log(skillProficiency4)
+       
         
     }
    
