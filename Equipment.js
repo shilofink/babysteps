@@ -18,7 +18,7 @@ async function generateEquipment(inventory) {
 }
 
 function generateAttacks(equipment) {
-    var finalHtml = ""
+    var finalHtml = "" 
     const weapons = equipment.filter(item => item.equipment.equipment_category.index === "weapon")
 
     weapons.map(item => {
