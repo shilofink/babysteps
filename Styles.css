@@ -39,6 +39,7 @@ form {text-align:center;}
 .modifiers {
     grid-column-start: 2;
     grid-column-end: 3;
+    
 }
 
 .saves {
@@ -46,10 +47,22 @@ form {text-align:center;}
     grid-column-end: 4;
 }
 
-.skill {
+.skills {
+    
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 50px;
+    grid-template-columns: repeat(2, 1fr);  
+}
+
+.skills > input{
+    width:30px;
+    margin: 1px;
+    grid-column: 2;
+    
+}
+
+.skills > label {
+    grid-column: 1;
+    margin: 1px;
 }
 
 .passivePerception {
